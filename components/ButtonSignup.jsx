@@ -28,8 +28,8 @@ const ButtonSignup = ({ page }) => {
         </Text>
       </TouchableOpacity>
       <Text style={{ marginVertical: 12, textAlign: "center" }}>
-        New to the app
-        <Text style={{ color: Colors.greenPrimary }}> Sign up here.</Text>
+        Already have an account?
+        <Text style={{ color: Colors.greenPrimary }}> Login here.</Text>
       </Text>
     </View>
   );
