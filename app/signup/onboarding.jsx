@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
+import { Colors } from "../../constants/Colors";
 
 const { width, height } = Dimensions.get("window");
 
@@ -25,13 +26,18 @@ const Onboarding = () => {
         />
       </View>
       <View>
-        <Text style={styles.headline}>Wherever you are</Text>
-        <Text style={styles.headlineBottom}>health is number one</Text>
+        <Text style={styles.headline}>
+          Start your{" "}
+          <Text style={{ backgroundColor: Colors.greenSecondary }}>
+            journey,{" "}
+          </Text>
+        </Text>
+        <Text style={styles.headlineBottom}>take small steps daily.</Text>
       </View>
 
       <View>
         <Text style={styles.subtext}>
-          There is no instant way to a healthy life
+          Let us help you to achieve your health goal!
         </Text>
       </View>
       <View>

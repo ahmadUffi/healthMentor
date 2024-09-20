@@ -19,7 +19,6 @@ const SingupDropdown = ({
   const [items, setItems] = useState(
     itemsValue.map((item) => ({ label: item, value: item }))
   );
-  console.log(items);
   return (
     <View>
       <View>

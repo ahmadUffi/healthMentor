@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import SingupDropdown from "../../components/SingupDropdown";
 import { genders } from "../../API";
-import { countries } from "../../API";
+import { actvities } from "../../API";
 
 const activities = () => {
   return (
@@ -10,7 +10,7 @@ const activities = () => {
       <SingupDropdown
         heading={"How active are you on a daily basis?"}
         placeholder={"I Want to."}
-        itemsValue={countries}
+        itemsValue={actvities}
         page={"health"}
         subText={
           "*Tip : activities such as exercise, physically taxing job, or even walking around"
