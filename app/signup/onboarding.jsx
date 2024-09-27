@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  Pressable,
 } from "react-native";
 import { Colors } from "../../constants/Colors";
 

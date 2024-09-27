@@ -3,7 +3,14 @@ import React from "react";
 
 const schedule = () => {
   return (
-    <View>
+    <View
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
       <Text>schedule</Text>
     </View>
   );

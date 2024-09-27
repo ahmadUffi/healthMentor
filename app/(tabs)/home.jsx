@@ -1,11 +1,22 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
+import Greating from "../../components/Greating";
+import Upcoming from "../../components/Upcoming";
 
 const home = () => {
   return (
-    <View>
-      <Text>home</Text>
-    </View>
+    <ScrollView
+      style={{
+        padding: 35,
+      }}
+    >
+      <View>
+        <Greating />
+      </View>
+      <View>
+        <Upcoming />
+      </View>
+    </ScrollView>
   );
 };
 

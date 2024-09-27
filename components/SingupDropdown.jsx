@@ -1,9 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import HeaderSign from "./HeaderSign";
 import React, { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import ButtonSignup from "./ButtonSignup";
 import { Link } from "expo-router";
+
+const { width, height } = Dimensions.get("window");
 
 const SingupDropdown = ({
   placeholder,
@@ -20,7 +22,11 @@ const SingupDropdown = ({
     itemsValue.map((item) => ({ label: item, value: item }))
   );
   return (
-    <View>
+    <View
+      style={{
+        height: height,
+      }}
+    >
       <View>
         <HeaderSign />
       </View>
@@ -28,8 +34,8 @@ const SingupDropdown = ({
         style={{
           padding: 30,
           display: "flex",
-          justifyContent: "space-between",
-          height: 900,
+          justifyContent: "space-around",
+          height: height,
         }}
       >
         <View style={{ marginTop: 50 }}>
@@ -78,4 +84,5 @@ const styles = StyleSheet.create({
     fontFamily: "latoBold",
   },
 });
+
 export default SingupDropdown;
