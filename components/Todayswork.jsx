@@ -8,7 +8,6 @@ const Todayswork = () => {
       style={{ marginVertical: 18 }}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-      ma
     >
       <Task />
       <Task />
