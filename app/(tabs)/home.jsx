@@ -5,12 +5,15 @@ import Upcoming from "../../components/Upcoming";
 import WorkoutCard from "../../components/WorkoutCard";
 import Meals from "../../components/MealsCard";
 import { TouchableOpacity } from "react-native";
+import Todayswork from "../../components/Todayswork";
 
 const home = () => {
   return (
     <ScrollView
       style={{
         padding: 35,
+        paddingLeft: 20,
+        paddingRight: 20,
       }}
     >
       <View>
@@ -117,6 +120,7 @@ const home = () => {
           />
         </ScrollView>
       </View>
+      <Todayswork />
     </ScrollView>
   );
 };
