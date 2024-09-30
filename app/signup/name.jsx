@@ -12,6 +12,11 @@ import { Colors } from "../../constants/Colors";
 import ButtonSignup from "../../components/ButtonSignup";
 
 const name = () => {
+  const [name, setName] = useState('');
+  const handleChange = (value) => {
+    setName(value);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
@@ -28,10 +33,10 @@ const name = () => {
           <Text style={styles.heading}>Nice to see you! What’s your name?</Text>
         </View>
         <View>
-          <TextInput placeholder="Name..." style={styles.inputText} autoFocus />
+          <TextInput placeholder="Name..." style={styles.inputText} autoFocus value={name} onChangeText={handleChange} />
         </View>
         <View>
-          <ButtonSignup page={"age"} />
+          <ButtonSignup page={"age"} data={name} />
         </View>
       </View>
     </View>

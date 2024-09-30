@@ -5,13 +5,14 @@ import ButtonSignup from "../../components/ButtonSignup";
 
 const { width, height } = Dimensions.get("window");
 
-const age = () => {
+const age = ({ data }) => {
   return (
     <View style={{ position: "relative" }}>
       <View style={{ position: "absolute", top: 0, zIndex: 23 }}>
         <HeaderSign />
       </View>
       <View style={styles.container}>
+        <Text></Text>
         <Text style={styles.Heading}>How old are you?</Text>
         <View>
           <TextInput
