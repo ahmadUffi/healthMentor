@@ -26,7 +26,7 @@ const Meals = ({ imageUri, title, time, status, page }) => {
             style={{
               display: "flex",
               flexDirection: "column",
-        
+
               justifyContent: "space-between",
 
               padding: 12,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: "latoBold",
     width: 95,
-    height:155,
+    height: 155,
     borderRadius: 5,
   },
   cardActive: {
@@ -109,16 +109,16 @@ const styles = StyleSheet.create({
   },
   tex: {
     fontSize: 8,
-    fontFamily: "lato",
+    fontFamily: "latoReguler",
   },
   tex10: {
     fontSize: 12,
     fontFamily: "latoBold",
-    marginVertical:2
+    marginVertical: 2,
   },
   tex13: {
     fontSize: 8,
-    fontFamily: "lato",
+    fontFamily: "latoReguler",
   },
   box: {
     width: 50,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 2,
-    marginVertical:5
+    marginVertical: 5,
   },
 });
 
