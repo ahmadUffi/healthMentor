@@ -38,7 +38,7 @@ const home = () => {
         <TouchableOpacity
           style={{ fontSize: 15, fontFamily: "lato", color: "grey" }}
         >
-          See all
+          <Text>See all </Text>
         </TouchableOpacity>
       </View>
       <View style={{ marginBottom: 20 }}>
