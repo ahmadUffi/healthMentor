@@ -3,11 +3,11 @@ import React from "react";
 import { router } from "expo-router";
 import { Colors } from "../constants/Colors";
 
-const ButtonSignup = ({ page, data }) => {
+const ButtonSignup = ({ page }) => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() => router.push({ pathname: "/signup/" + page, params: data})}
+        onPress={() => router.push("/signup/" + page)}
         style={{
           height: 59,
           backgroundColor: Colors.greenSecondary,

@@ -2,17 +2,19 @@ import { View, Text, StyleSheet, TextInput, Dimensions } from "react-native";
 import React from "react";
 import HeaderSign from "../../components/HeaderSign";
 import ButtonSignup from "../../components/ButtonSignup";
+import { useFormData } from "./formHandler";
 
 const { width, height } = Dimensions.get("window");
 
-const age = ({ data }) => {
+const age = () => {
+  const { data, updateData } = useFormData();
+
   return (
     <View style={{ position: "relative" }}>
       <View style={{ position: "absolute", top: 0, zIndex: 23 }}>
         <HeaderSign />
       </View>
       <View style={styles.container}>
-        <Text></Text>
         <Text style={styles.Heading}>How old are you?</Text>
         <View>
           <TextInput
@@ -22,11 +24,13 @@ const age = ({ data }) => {
             style={styles.textInput}
             maxLength={2}
             autoFocus={true}
+            value={data.age}
+            onChangeText={(value) => {updateData('age', value)}}
           />
           <Text style={styles.subText}>Years Old</Text>
         </View>
         <View style={styles.wrapBtn}>
-          <ButtonSignup page={"gender"} />
+          <ButtonSignup page={"gender"}/>
         </View>
       </View>
     </View>
