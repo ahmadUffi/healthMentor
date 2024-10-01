@@ -22,7 +22,6 @@ const home = () => {
       <View>
         <Upcoming />
       </View>
-
       <View
         style={{
           display: "flex",
@@ -36,7 +35,7 @@ const home = () => {
           Today's Workouts
         </Text>
         <TouchableOpacity
-          style={{ fontSize: 15, fontFamily: "lato", color: "grey" }}
+          style={{ fontSize: 15, fontFamily: "latoReguler", color: "grey" }}
         >
           <Text>See all </Text>
         </TouchableOpacity>
@@ -90,9 +89,9 @@ const home = () => {
           Today's Meals
         </Text>
         <TouchableOpacity
-          style={{ fontSize: 15, fontFamily: "lato", color: "grey" }}
+          style={{ fontSize: 15, fontFamily: "latoReguler", color: "grey" }}
         >
-          See all
+          <Text> See all</Text>
         </TouchableOpacity>
       </View>
       <View>

@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   },
   tex: {
     fontSize: 8,
-    fontFamily: "lato",
+    fontFamily: "latoReguler",
   },
   tex10: {
     fontSize: 10,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   tex13: {
     fontSize: 13,
-    fontFamily: "lato",
+    fontFamily: "latoReguler",
   },
   box: {
     width: 50,
