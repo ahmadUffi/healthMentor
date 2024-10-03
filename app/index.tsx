@@ -5,6 +5,6 @@ export default function Index() {
   return (
     // <View>
     //   <Text>index page</Text>
-    <Redirect href={"/chatbot"} />
+    <Redirect href={"/schedule"} />
   );
 }

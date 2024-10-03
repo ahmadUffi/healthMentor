@@ -3,125 +3,110 @@ import React from "react";
 import Greating from "../../components/Greating";
 import Upcoming from "../../components/Upcoming";
 import WorkoutCard from "../../components/WorkoutCard";
-import Meals from "../../components/MealsCard";
+import Meals from "../../components/Meals";
 import { TouchableOpacity } from "react-native";
 import Todayswork from "../../components/Todayswork";
+import { StyleSheet } from "react-native";
+import Task from "../../components/Task";
+import Wrapper from "../../components/Wrapper";
 
 const home = () => {
   return (
-    <ScrollView
-      style={{
-        padding: 35,
-        paddingLeft: 20,
-        paddingRight: 20,
-      }}
-    >
-      <View>
-        <Greating />
-      </View>
-      <View>
-        <Upcoming />
-      </View>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          marginVertical: 20,
-        }}
-      >
-        <Text style={{ fontSize: 20, fontFamily: "latoBold" }}>
-          Today's Workouts
-        </Text>
-        <TouchableOpacity
-          style={{ fontSize: 15, fontFamily: "latoReguler", color: "grey" }}
+    <Wrapper>
+      <ScrollView>
+        <View>
+          <Greating />
+        </View>
+        <View>
+          <Upcoming />
+        </View>
+
+        {/* todays Work */}
+        <View>
+          <View style={styles.wrapTitleWorkout}>
+            <Text style={{ fontSize: 20, fontFamily: "latoBold" }}>
+              Today's Workouts
+            </Text>
+            <TouchableOpacity
+              style={{ fontSize: 15, fontFamily: "latoReguler", color: "grey" }}
+            >
+              <Text>See all </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ marginBottom: 20 }}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  height: 280,
+                  gap: 23,
+                }}
+              >
+                <Task schedule={"completed"} />
+                <Task schedule={"upcoming"} />
+                <Task schedule={"incomplete"} />
+                <Task schedule={"completed"} />
+                <Task schedule={"upcoming"} />
+                <Task schedule={"incomplete"} />
+                <Task schedule={"completed"} />
+                <Task schedule={"upcoming"} />
+                <Task schedule={"incomplete"} />
+              </View>
+            </ScrollView>
+          </View>
+        </View>
+
+        {/* akhir todays work */}
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            marginVertical: 20,
+          }}
         >
-          <Text>See all </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ marginBottom: 20 }}>
-        <ScrollView horizontal>
-          <WorkoutCard
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="Warm Up"
-            time="7:20 AM - 7:30 AM"
-            status={true}
-            page="yaa"
-          />
-          <WorkoutCard
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="iyh"
-            time="9:20 AM - 7:30 AM"
-            status={false}
-            page="yaa"
-          />
-        </ScrollView>
-      </View>
-      <View style={{ marginBottom: 20 }}>
-        <ScrollView horizontal>
-          <WorkoutCard
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="Warm Up"
-            time="7:20 AM - 7:30 AM"
-            status={false}
-            page="yaa"
-          />
-          <WorkoutCard
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="iyh"
-            time="9:20 AM - 7:30 AM"
-            status={true}
-            page="yaa"
-          />
-        </ScrollView>
-      </View>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          marginVertical: 20,
-        }}
-      >
-        <Text style={{ fontSize: 20, fontFamily: "latoBold" }}>
-          Today's Meals
-        </Text>
-        <TouchableOpacity
-          style={{ fontSize: 15, fontFamily: "latoReguler", color: "grey" }}
-        >
-          <Text> See all</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <ScrollView horizontal>
-          <Meals
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="Breakfast"
-            time="Oat Meal"
-            status={false}
-            page="yaa"
-          />
-          <Meals
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="Breakfast"
-            time="Oat Meal"
-            status={false}
-            page="yaa"
-          />
-          <Meals
-            imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
-            title="Breakfast"
-            time="Oat Meal"
-            status={false}
-            page="yaa"
-          />
-        </ScrollView>
-      </View>
-      <Todayswork />
-    </ScrollView>
+          <Text style={{ fontSize: 20, fontFamily: "latoBold" }}>
+            Today's Meals
+          </Text>
+          <TouchableOpacity
+            style={{ fontSize: 15, fontFamily: "latoReguler", color: "grey" }}
+          >
+            <Text> See all</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <Meals
+              imageUri={"https://www.w3schools.com/html/pic_trulli.jpg"}
+              page="yaa"
+              schedule={"completed"}
+            />
+            <Meals
+              imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
+              schedule={"upcoming"}
+            />
+            <Meals
+              imageUri="https://www.w3schools.com/html/pic_trulli.jpg"
+              schedule={"incomplete"}
+            />
+          </ScrollView>
+        </View>
+        {/* <Todayswork /> */}
+      </ScrollView>
+    </Wrapper>
   );
 };
 
 export default home;
+
+const styles = StyleSheet.create({
+  wrapTitleWorkout: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "baseline",
+    justifyContent: "space-between",
+    marginVertical: 20,
+  },
+});

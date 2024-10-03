@@ -72,17 +72,13 @@ const styles = StyleSheet.create({
   customBox: {
     fontSize: 15,
     fontFamily: "latoBold",
-
-    width: 210,
-    height: 80,
+    width: 240,
+    height: 120,
     borderRadius: 5,
     display: "flex",
     flexDirection: "row",
   },
-  cardActive: {
-    backgroundColor: "#BBF246",
-    color: "#192126",
-  },
+
   cardInactive: {
     backgroundColor: "#192126",
     color: "white",

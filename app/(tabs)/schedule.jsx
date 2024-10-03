@@ -1,18 +1,13 @@
 import { View, Text } from "react-native";
 import React from "react";
+import TaskSchedule from "../../components/TaskSchedule";
+import Wrapper from "../../components/Wrapper";
 
 const schedule = () => {
   return (
-    <View
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-      }}
-    >
-      <Text>schedule</Text>
-    </View>
+    <Wrapper>
+      <TaskSchedule />
+    </Wrapper>
   );
 };
 

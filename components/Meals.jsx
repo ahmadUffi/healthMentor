@@ -4,7 +4,7 @@ import { ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Colors } from "../constants/Colors";
 
-const Task = ({ text, time, schedule }) => {
+const Meals = ({ text, time, schedule, imageUri }) => {
   const img = require("../assets/images/task.png");
 
   return (
@@ -15,7 +15,11 @@ const Task = ({ text, time, schedule }) => {
       ]}
     >
       <View>
-        <Image source={img} />
+        <Image
+          source={{ uri: imageUri }}
+          style={{ width: "100%", height: 140 }}
+          alt="source"
+        />
       </View>
       <View style={styles.text}>
         <Text
@@ -58,17 +62,18 @@ const Task = ({ text, time, schedule }) => {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    flexDirection: "row",
-    width: 320,
-    height: 125,
+    width: 170,
     borderRadius: 10,
     overflow: "hidden",
     marginRight: 23,
   },
 
   text: {
+    marginTop: 10,
     display: "flex",
     justifyContent: "space-evenly",
+    alignItems: "flex-start",
+    gap: 7,
     marginLeft: 12,
   },
 
@@ -97,11 +102,13 @@ const styles = StyleSheet.create({
   },
 
   btn: {
+    width: "50%",
+    padding: 6,
     backgroundColor: Colors.black,
-    padding: 8,
     borderRadius: 3,
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 10,
   },
 
   btnActive: {
@@ -114,7 +121,7 @@ const styles = StyleSheet.create({
   btnText: {
     fontFamily: "latoBold",
     letterSpacing: 0.3,
-    fontSize: 16,
+    fontSize: 12,
     textTransform: "capitalize",
   },
 
@@ -126,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Task;
+export default Meals;

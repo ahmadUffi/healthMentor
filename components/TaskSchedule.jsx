@@ -33,23 +33,25 @@ const Task = ({ text, time, schedule }) => {
         >
           7:20 AM - 7:30 AM
         </Text>
-        <TouchableOpacity
-          style={[
-            styles.btn,
-            schedule == "completed" ? styles.btnActive : styles.btnInActive,
-          ]}
-        >
-          <Text
+        <View>
+          <TouchableOpacity
             style={[
-              styles.btnText,
-              schedule == "completed"
-                ? styles.btnTextActive
-                : styles.btnTextInActive,
+              styles.btn,
+              schedule == "completed" ? styles.btnActive : styles.btnInActive,
             ]}
           >
-            {schedule}
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={[
+                styles.btnText,
+                schedule == "completed"
+                  ? styles.btnTextActive
+                  : styles.btnTextInActive,
+              ]}
+            >
+              {schedule}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
