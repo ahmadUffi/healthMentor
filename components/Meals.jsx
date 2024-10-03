@@ -5,8 +5,6 @@ import { TouchableOpacity } from "react-native";
 import { Colors } from "../constants/Colors";
 
 const Meals = ({ text, time, schedule, imageUri }) => {
-  const img = require("../assets/images/task.png");
-
   return (
     <View
       style={[

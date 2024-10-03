@@ -4,9 +4,7 @@ import { ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Colors } from "../constants/Colors";
 
-const Task = ({ text, time, schedule }) => {
-  const img = require("../assets/images/task.png");
-
+const Task = ({ text, time, schedule, imgUri }) => {
   return (
     <View
       style={[
@@ -15,7 +13,10 @@ const Task = ({ text, time, schedule }) => {
       ]}
     >
       <View>
-        <Image source={img} />
+        <Image
+          source={{ uri: imgUri }}
+          style={{ width: 150, height: "100%", resizeMode: "cover" }}
+        />
       </View>
       <View style={styles.text}>
         <Text
