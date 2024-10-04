@@ -13,7 +13,10 @@ import Wrapper from "../../components/Wrapper";
 const home = () => {
   return (
     <Wrapper>
-      <ScrollView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        nestedScrollEnabled={true}
+      >
         <View>
           <Greating />
         </View>

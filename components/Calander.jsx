@@ -6,10 +6,14 @@ import { StyleSheet } from "react-native";
 const Calander = ({ day, tgl, active }) => {
   return (
     <View style={[styles.container, active ? styles.active : styles.inActive]}>
-      <Text style={{ fontFamily: "latoBold", textTransform: "uppercase" }}>
+      <Text
+        style={[styles.text, active ? styles.textActive : styles.textInActive]}
+      >
         {day}
       </Text>
-      <Text style={{ fontFamily: "latoBold", textTransform: "uppercase" }}>
+      <Text
+        style={[styles.text, active ? styles.textActive : styles.textInActive]}
+      >
         {tgl}
       </Text>
     </View>
@@ -29,8 +33,20 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.black,
   },
 
+  text: {
+    fontFamily: "latoBold",
+    textTransform: "uppercase, ",
+  },
+
   inActive: {
     backgroundColor: Colors.greenSecondary,
+  },
+
+  textActive: {
+    color: "white",
+  },
+  textInActive: {
+    color: Colors.black,
   },
 });
 

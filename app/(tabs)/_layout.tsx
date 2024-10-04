@@ -6,18 +6,18 @@ const TabLayout = () => {
   return (
     <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
-        name="schedule"
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Feather name="calendar" size={24} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="home"
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="home" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="schedule"
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Feather name="calendar" size={24} color={color} />
           ),
         }}
       />
