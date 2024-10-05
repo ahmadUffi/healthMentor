@@ -1,10 +1,17 @@
 import { Redirect } from "expo-router";
-import { Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { FIREBASE_AUTH } from "../firebase";
 
 export default function Index() {
+  // const [user, setUser] = useState(false);
+  
+  // useEffect(() => {
+  //   if (FIREBASE_AUTH.currentUser) {
+  //     setUser(true);
+  //   }
+  // }, []);
+  
   return (
-    // <View>
-    //   <Text>index page</Text>
-    <Redirect href={"/signup/onboarding"} />
+    <Redirect href={"/signup/login"} />
   );
 }

@@ -14,6 +14,8 @@ export default function RootLayout() {
           <Stack.Screen name="location" options={{ headerShown: false }} />
           <Stack.Screen name="activities" options={{ headerShown: false }} />
           <Stack.Screen name="health" options={{ headerShown: false }} />
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+          <Stack.Screen name="done" options={{ headerShown: false }} />
         </Stack>
       </FormHandler>
         
