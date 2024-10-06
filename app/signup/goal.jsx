@@ -11,6 +11,7 @@ const goal = () => {
         placeholder={"I Want to..."}
         itemsValue={goals}
         page={"activities"}
+        currentPageName={"goal"}
       />
     </View>
   );

@@ -1,9 +1,10 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import HeaderSign from "./HeaderSign";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import ButtonSignup from "./ButtonSignup";
 import { Link } from "expo-router";
+import { useFormData } from "../app/signup/formHandler"
 
 const { width, height } = Dimensions.get("window");
 
@@ -15,12 +16,19 @@ const SingupDropdown = ({
   subText,
   subText2,
   page,
+  currentPageName
 }) => {
+  const { data, updateData } = useFormData();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState(
     itemsValue.map((item) => ({ label: item, value: item }))
   );
+
+  useEffect(() => {
+    setValue(data[currentPageName]);
+  }, [data, currentPageName]);
+
   return (
     <View
       style={{
@@ -58,6 +66,7 @@ const SingupDropdown = ({
               borderWidth: 0,
             }}
             labelStyle={{}}
+            onChangeValue={(value) => {updateData(currentPageName, value)}}
           />
           <Text
             style={{

@@ -10,8 +10,11 @@ import React from "react";
 import Logo from "../../components/Logo";
 import { Colors } from "../../constants/Colors";
 import ButtonSignup from "../../components/ButtonSignup";
+import { useFormData } from "./formHandler";
 
 const name = () => {
+  const { data, updateData } = useFormData();
+
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
@@ -28,7 +31,13 @@ const name = () => {
           <Text style={styles.heading}>Nice to see you! What’s your name?</Text>
         </View>
         <View>
-          <TextInput placeholder="Name..." style={styles.inputText} autoFocus />
+          <TextInput 
+            placeholder="Name..." 
+            style={styles.inputText} 
+            autoFocus 
+            value={data.name} 
+            onChangeText={(value) => { updateData('name', value) }} 
+          />
         </View>
         <View>
           <ButtonSignup page={"age"} />

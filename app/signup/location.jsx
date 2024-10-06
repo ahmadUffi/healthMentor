@@ -12,6 +12,7 @@ const location = () => {
         placeholder={"I Live in..."}
         itemsValue={countries}
         page={"goal"}
+        currentPageName={"location"}
         subText={"*Tip : type your general location,or tap"}
         action={"here"}
         subText2={"to use your GPS."}
