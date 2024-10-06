@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import Logo from "../../components/Logo";
 import { useFormData } from "./formHandler";
 import { useEffect } from "react";
-import { REALTIME_DB } from "../../firebase";
+import { FIREBASE_AUTH, REALTIME_DB } from "../../firebase";
 import { ref, set } from "firebase/database";
 
 
@@ -13,7 +13,7 @@ const done = () => {
     useEffect(() => {
       const UploadData = async () => {
         try {
-          await set(ref(REALTIME_DB, "users/form"), data);
+          await set(ref(REALTIME_DB, "users/" + FIREBASE_AUTH.currentUser.uid), data);
 
           console.log("Submission success.")
           router.push("/home");

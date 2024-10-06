@@ -1,4 +1,4 @@
-import { Text, TextInput, View, StyleSheet } from "react-native";
+import { Text, TextInput, View, StyleSheet, Alert } from "react-native";
 import Logo from "../../components/Logo";
 import ButtonSignup from "../../components/ButtonSignup";
 import { useState } from "react";
@@ -23,7 +23,12 @@ const Login = () => {
                     router.push("/signup/name");
                 }
                 catch (error) {
-                    console.error("Submission failed : ", error);
+                    if (error.code === "auth/email-already-in-use") {
+                        Alert.alert('Wrong Credentials.', 'Your email or password is incorrect.')
+                    }
+                    else {
+                        console.error("Submission failed : ", error);
+                    }
                 }
             }
             else {
@@ -49,9 +54,9 @@ const Login = () => {
             }}>
                 <View style={{ paddingTop: "5%" }}>
                     <Text style={styles.text}>Email</Text>
-                    <TextInput style={styles.formInput} placeholder="Type your email" onChangeText={setEmail}></TextInput>
+                    <TextInput style={styles.formInput} placeholder="Type your email" onChangeText={setEmail} textContentType="emailAddress"></TextInput>
                     <Text style={styles.text}>Password</Text>
-                    <TextInput style={styles.formInput} placeholder="Type your password" onChangeText={setPassword}></TextInput>
+                    <TextInput style={styles.formInput} placeholder="Type your password" onChangeText={setPassword} secureTextEntry={true}></TextInput>
                 </View>
                 <View>
                     <ButtonSignup isSignUp={false} callback={handleAuth}/>
