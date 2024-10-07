@@ -1,22 +1,32 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { Colors } from "../constants/Colors";
 import { StyleSheet } from "react-native";
 
 const Calander = ({ day, tgl, active }) => {
   return (
-    <View style={[styles.container, active ? styles.active : styles.inActive]}>
-      <Text
-        style={[styles.text, active ? styles.textActive : styles.textInActive]}
+    <TouchableOpacity>
+      <View
+        style={[styles.container, active ? styles.active : styles.inActive]}
       >
-        {day}
-      </Text>
-      <Text
-        style={[styles.text, active ? styles.textActive : styles.textInActive]}
-      >
-        {tgl}
-      </Text>
-    </View>
+        <Text
+          style={[
+            styles.text,
+            active ? styles.textActive : styles.textInActive,
+          ]}
+        >
+          {day}
+        </Text>
+        <Text
+          style={[
+            styles.text,
+            active ? styles.textActive : styles.textInActive,
+          ]}
+        >
+          {tgl}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

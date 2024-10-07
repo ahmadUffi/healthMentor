@@ -6,8 +6,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { child, get, ref } from "firebase/database";
 
 export default function Index() {
+  
   const [user, setUser] = useState(null);
-
   // does a double check in case that the user has signed up with email, but hasn't filled their bio 
   const doubleCheck = () => {
     let isBioFilled : boolean;
@@ -27,6 +27,7 @@ export default function Index() {
   };
 
   // use this to sign out, cuz there's no sign out button for now
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(FIREBASE_AUTH, (user) => {
       if (user) {
@@ -39,6 +40,7 @@ export default function Index() {
 
     console.log(user)
     return () => unsubscribe();
+
     // signOut(FIREBASE_AUTH);
   }, []);
 
@@ -49,4 +51,5 @@ export default function Index() {
     return <Redirect href={"/signup/name"}/>;
   }
   return <Redirect href={"/signup/login"}/>;
+
 }

@@ -4,17 +4,17 @@ import { ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Colors } from "../constants/Colors";
 
-const Meals = ({ text, time, schedule, imageUri }) => {
+const Meals = ({ title, time, schedule, imgUri }) => {
   return (
     <View
       style={[
         styles.container,
-        schedule == "completed" ? styles.cardActive : styles.cardInactive,
+        schedule == "done" ? styles.cardActive : styles.cardInactive,
       ]}
     >
       <View>
         <Image
-          source={{ uri: imageUri }}
+          source={{ uri: imgUri }}
           style={{ width: "100%", height: 140 }}
           alt="source"
         />
@@ -22,29 +22,29 @@ const Meals = ({ text, time, schedule, imageUri }) => {
       <View style={styles.text}>
         <Text
           style={[
-            schedule == "completed" ? styles.activeColor : styles.inactiveColor,
+            schedule == "done" ? styles.activeColor : styles.inactiveColor,
           ]}
         >
-          Wram Up
+          {title}
         </Text>
         <Text
           style={[
-            schedule == "completed" ? styles.activeColor : styles.inactiveColor,
+            schedule == "done" ? styles.activeColor : styles.inactiveColor,
             styles.time,
           ]}
         >
-          7:20 AM - 7:30 AM
+          {time}
         </Text>
         <TouchableOpacity
           style={[
             styles.btn,
-            schedule == "completed" ? styles.btnActive : styles.btnInActive,
+            schedule == "done" ? styles.btnActive : styles.btnInActive,
           ]}
         >
           <Text
             style={[
               styles.btnText,
-              schedule == "completed"
+              schedule == "done"
                 ? styles.btnTextActive
                 : styles.btnTextInActive,
             ]}
