@@ -33,7 +33,7 @@ const ButtonSignup = ({ page = "", isSignUp = true, callback = () => {}}) => {
             fontFamily: "latoBold",
           }}
         >
-          {isSignUp ? ("Next") : ("Log in")}
+          {isSignUp || page ? ("Next") : ("Log in")}
         </Text>
       </TouchableOpacity>
       <View style={{
@@ -41,7 +41,7 @@ const ButtonSignup = ({ page = "", isSignUp = true, callback = () => {}}) => {
         justifyContent: "center",
         alignItems: "center"
       }}>
-        {isSignUp ? (
+        {isSignUp || page ? (
           <Text style={{ marginVertical: 12}}>
             Already have an account?
             <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/login") }> Log in here.</Text>
@@ -49,7 +49,7 @@ const ButtonSignup = ({ page = "", isSignUp = true, callback = () => {}}) => {
         ) : (
           <Text style={{ marginVertical: 12}}>
             New to the app?
-            <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/name") }> Sign up here.</Text>
+            <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/signup-form") }> Sign up here.</Text>
           </Text>
         )}
       </View>
