@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import Wrapper from "../../components/Wrapper";
 import Bio from "../../components/Bio";
@@ -35,8 +35,16 @@ const profile = () => {
               backgroundColor: Colors.black,
               borderRadius: 12,
               padding: 18,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 12,
             }}
           >
+            <Image
+              source={require("../../assets/images/change.png")}
+              style={{ width: 32, height: 32 }}
+            />
             <Text
               style={{ color: "white", fontFamily: "latoBold", fontSize: 16 }}
             >
@@ -48,8 +56,17 @@ const profile = () => {
               backgroundColor: Colors.black,
               borderRadius: 12,
               padding: 18,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 12,
             }}
           >
+            <Image
+              source={require("../../assets/images/about.png")}
+              style={{ width: 32, height: 32 }}
+            />
+
             <Text
               style={{ color: "white", fontFamily: "latoBold", fontSize: 16 }}
             >

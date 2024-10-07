@@ -6,18 +6,20 @@ import { onAuthStateChanged } from "firebase/auth";
 
 export default function Index() {
   const [user, setUser] = useState(null);
-  
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(FIREBASE_AUTH, (user) => {
       setUser(user);
     });
 
     return () => unsubscribe();
-  }, []); 
-  
+  }, []);
+
   return (
     <View>
-      {user ? <Redirect href={"/home"}/> : <Redirect href={"/signup/login"}/>}
+      {/* {user ? <Redirect href={"/home"}/> : <Redirect href={"/signup/login"}/>} */}
+      <Redirect href={"/schedule"} />
+      {/* Mocking the user for demonstration purposes */}
     </View>
   );
 }

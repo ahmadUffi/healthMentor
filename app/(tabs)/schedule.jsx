@@ -5,6 +5,7 @@ import Wrapper from "../../components/Wrapper";
 import { ScrollView } from "react-native";
 import { Colors } from "../../constants/Colors";
 import Calander from "../../components/Calander";
+import { schedules } from "../../API";
 
 const schedule = () => {
   return (
@@ -72,7 +73,7 @@ const schedule = () => {
           </View>
           <View
             style={{
-              height: 430,
+              height: 450,
             }}
           >
             <ScrollView
@@ -80,11 +81,19 @@ const schedule = () => {
               nestedScrollEnabled={true}
             >
               <View style={{ display: "flex", gap: 14 }}>
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
+                {schedules.map((schedule) =>
+                  schedule.makanan.map((makan, index) => (
+                    <TaskSchedule
+                      key={index}
+                      imgUri={makan.imgUri}
+                      title={makan.menu}
+                      time={makan.waktu}
+                      subtitle={makan.waktu_makan}
+                      Kcal={makan.kcal}
+                      schedule={"tomorrow"}
+                    />
+                  ))
+                )}
               </View>
             </ScrollView>
           </View>
@@ -118,7 +127,7 @@ const schedule = () => {
           </View>
           <View
             style={{
-              height: 430,
+              height: 450,
             }}
           >
             <ScrollView
@@ -126,11 +135,18 @@ const schedule = () => {
               nestedScrollEnabled={true}
             >
               <View style={{ display: "flex", gap: 14 }}>
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
-                <TaskSchedule schedule={"tomorrow"} Kcal={"+ 200 Kcal"} />
+                {schedules.map((schedule) =>
+                  schedule.olahraga.map((workout, index) => (
+                    <TaskSchedule
+                      key={index}
+                      imgUri={workout.imgUri}
+                      title={workout.gerakan}
+                      time={workout.waktu}
+                      Kcal={workout.kcal}
+                      schedule={"tomorrow"}
+                    />
+                  ))
+                )}
               </View>
             </ScrollView>
           </View>
