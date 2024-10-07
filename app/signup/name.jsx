@@ -28,7 +28,7 @@ const name = () => {
         }}
       >
         <View>
-          <Text style={styles.heading}>Nice to see you! What’s your name?</Text>
+          <Text style={styles.heading}>First, What’s your name?</Text>
         </View>
         <View>
           <TextInput 
