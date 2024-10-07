@@ -3,10 +3,9 @@ import HeaderSign from "./HeaderSign";
 import React, { useEffect, useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import ButtonSignup from "./ButtonSignup";
-import { Link } from "expo-router";
-import { useFormData } from "../app/signup/formHandler"
+import { useFormData } from "../app/signup/formHandler";
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 
 const SingupDropdown = ({
   placeholder,
@@ -16,7 +15,7 @@ const SingupDropdown = ({
   subText,
   subText2,
   page,
-  currentPageName
+  currentPageName,
 }) => {
   const { data, updateData } = useFormData();
   const [open, setOpen] = useState(false);
@@ -29,12 +28,11 @@ const SingupDropdown = ({
     setValue(data[currentPageName]);
   }, [data, currentPageName]);
 
+  // Check if a value is selected to enable/disable the button
+  const isDisabled = !value;
+
   return (
-    <View
-      style={{
-        height: height,
-      }}
-    >
+    <View style={{ height }}>
       <View>
         <HeaderSign />
       </View>
@@ -43,7 +41,7 @@ const SingupDropdown = ({
           padding: 30,
           display: "flex",
           justifyContent: "space-around",
-          height: height,
+          height,
         }}
       >
         <View style={{ marginTop: 50 }}>
@@ -66,7 +64,9 @@ const SingupDropdown = ({
               borderWidth: 0,
             }}
             labelStyle={{}}
-            onChangeValue={(value) => {updateData(currentPageName, value)}}
+            onChangeValue={(value) => {
+              updateData(currentPageName, value);
+            }}
           />
           <Text
             style={{
@@ -81,12 +81,13 @@ const SingupDropdown = ({
           </Text>
         </View>
         <View style={{ marginBottom: 20 }}>
-          <ButtonSignup page={page} />
+          <ButtonSignup page={page} isDisabled={isDisabled} /> 
         </View>
       </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   heading: {
     fontSize: 32,

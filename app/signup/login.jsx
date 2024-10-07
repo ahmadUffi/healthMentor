@@ -7,10 +7,10 @@ import { FIREBASE_AUTH } from "../../firebase";
 import { router } from "expo-router";
 import { useFormData } from "./formHandler";
 
-
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
     const handleAuth = async () => {
         try {
             await signInWithEmailAndPassword(FIREBASE_AUTH, email, password);
@@ -37,6 +37,9 @@ const Login = () => {
         }
     }
 
+    // Check if email and password are filled to enable/disable the button
+    const isDisabled = !email || !password; // Disable if either field is empty
+
     return (
         <View style={styles.container}>
             <View style={styles.logo}>
@@ -44,7 +47,7 @@ const Login = () => {
             </View>
             <View>
                 <Text style={styles.heading}>Log in</Text>
-                <Text style={styles.text}>Log in to an exising account.</Text>
+                <Text style={styles.text}>Log in to an existing account.</Text>
             </View>
             <View style={{
                 height: "74%",
@@ -54,12 +57,22 @@ const Login = () => {
             }}>
                 <View style={{ paddingTop: "5%" }}>
                     <Text style={styles.text}>Email</Text>
-                    <TextInput style={styles.formInput} placeholder="Type your email" onChangeText={setEmail} textContentType="emailAddress"></TextInput>
+                    <TextInput
+                        style={styles.formInput}
+                        placeholder="Type your email"
+                        onChangeText={setEmail}
+                        textContentType="emailAddress"
+                    />
                     <Text style={styles.text}>Password</Text>
-                    <TextInput style={styles.formInput} placeholder="Type your password" onChangeText={setPassword} secureTextEntry={true}></TextInput>
+                    <TextInput
+                        style={styles.formInput}
+                        placeholder="Type your password"
+                        onChangeText={setPassword}
+                        secureTextEntry={true}
+                    />
                 </View>
                 <View>
-                    <ButtonSignup isSignUp={false} callback={handleAuth}/>
+                    <ButtonSignup isSignUp={false} callback={handleAuth} isDisabled={isDisabled} /> 
                 </View>
             </View>
         </View>
@@ -72,7 +85,7 @@ const styles = StyleSheet.create({
     text: {
         color: "#192126",
         margin: "2%",
-        fontFamily : "latoReguler"
+        fontFamily: "latoReguler"
     },
     container: {
       position: "relative",
@@ -99,4 +112,4 @@ const styles = StyleSheet.create({
         margin: "1%",
         fontFamily: "latoReguler"
     }
-  });
+});

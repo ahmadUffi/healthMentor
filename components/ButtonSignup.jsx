@@ -3,13 +3,19 @@ import React from "react";
 import { router } from "expo-router";
 import { Colors } from "../constants/Colors";
 
-const ButtonSignup = ({ page = "", isSignUp = true, callback = () => {}}) => {
+const ButtonSignup = ({
+  page = "",
+  isSignUp = true,
+  callback = () => {},
+  isDisabled = true,
+}) => {
   const handlePress = () => {
-    if (isSignUp) {
-      router.push("/signup/" + page)
-    }
-    else {
-      callback();
+    if (!isDisabled) {
+      if (isSignUp) {
+        router.push("/signup/" + page);
+      } else {
+        callback();
+      }
     }
   };
 
@@ -17,39 +23,53 @@ const ButtonSignup = ({ page = "", isSignUp = true, callback = () => {}}) => {
     <View>
       <TouchableOpacity
         onPress={handlePress}
+        disabled={isDisabled} // Disable the button based on the isDisabled prop
         style={{
           height: 59,
-          backgroundColor: Colors.greenSecondary,
+          backgroundColor: isDisabled ? "#808080" : Colors.greenSecondary, // Change background color if disabled
           borderRadius: 8,
         }}
       >
         <Text
           style={{
-            color: "black",
+            color: isDisabled ? Colors.darkGray : "#000", // Change text color if disabled
             fontSize: 20,
             textAlign: "center",
             lineHeight: 59,
-            color: "#000",
             fontFamily: "latoBold",
           }}
         >
-          {isSignUp ? ("Next") : ("Log in")}
+          {isSignUp ? "Next" : "Log in"}
         </Text>
       </TouchableOpacity>
-      <View style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {isSignUp ? (
-          <Text style={{ marginVertical: 12}}>
+          <Text style={{ marginVertical: 12 }}>
             Already have an account?
-            <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/login") }> Log in here.</Text>
+            <Text
+              style={{ color: Colors.greenPrimary }}
+              onPress={() => router.push("signup/login")}
+            >
+              {" "}
+              Log in here.
+            </Text>
           </Text>
         ) : (
-          <Text style={{ marginVertical: 12}}>
+          <Text style={{ marginVertical: 12 }}>
             New to the app?
-            <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/name") }> Sign up here.</Text>
+            <Text
+              style={{ color: Colors.greenPrimary }}
+              onPress={() => router.push("signup/name")}
+            >
+              {" "}
+              Sign up here.
+            </Text>
           </Text>
         )}
       </View>
