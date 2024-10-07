@@ -11,6 +11,7 @@ const gender = () => {
         placeholder={"My gender is ..."}
         itemsValue={genders}
         page={"location"}
+        currentPageName={"gender"}
       />
     </View>
   );

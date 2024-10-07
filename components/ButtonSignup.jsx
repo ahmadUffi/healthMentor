@@ -3,11 +3,20 @@ import React from "react";
 import { router } from "expo-router";
 import { Colors } from "../constants/Colors";
 
-const ButtonSignup = ({ page }) => {
+const ButtonSignup = ({ page = "", isSignUp = true, callback = () => {}}) => {
+  const handlePress = () => {
+    if (isSignUp) {
+      router.push("/signup/" + page)
+    }
+    else {
+      callback();
+    }
+  };
+
   return (
     <View>
       <TouchableOpacity
-        onPress={() => router.push("/signup/" + page)}
+        onPress={handlePress}
         style={{
           height: 59,
           backgroundColor: Colors.greenSecondary,
@@ -24,13 +33,26 @@ const ButtonSignup = ({ page }) => {
             fontFamily: "latoBold",
           }}
         >
-          Next
+          {isSignUp ? ("Next") : ("Log in")}
         </Text>
       </TouchableOpacity>
-      <Text style={{ marginVertical: 12, textAlign: "center" }}>
-        Already have an account?
-        <Text style={{ color: Colors.greenPrimary }}> Login here.</Text>
-      </Text>
+      <View style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}>
+        {isSignUp ? (
+          <Text style={{ marginVertical: 12}}>
+            Already have an account?
+            <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/login") }> Log in here.</Text>
+          </Text>
+        ) : (
+          <Text style={{ marginVertical: 12}}>
+            New to the app?
+            <Text style={{ color: Colors.greenPrimary }} onPress={ () => router.push("signup/name") }> Sign up here.</Text>
+          </Text>
+        )}
+      </View>
     </View>
   );
 };

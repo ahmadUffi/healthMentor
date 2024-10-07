@@ -11,6 +11,7 @@ const health = () => {
         placeholder={"I am..."}
         itemsValue={healths}
         page={"done"}
+        currentPageName={"health"}
       />
     </View>
   );

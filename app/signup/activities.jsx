@@ -12,6 +12,7 @@ const activities = () => {
         placeholder={"I Want to."}
         itemsValue={actvities}
         page={"health"}
+        currentPageName={"activities"}
         subText={
           "*Tip : activities such as exercise, physically taxing job, or even walking around"
         }
