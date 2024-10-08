@@ -8,6 +8,7 @@ const { width, height } = Dimensions.get("window");
 
 const age = () => {
   const { data, updateData } = useFormData();
+  const isDisabled = !data.age || data.age < 0;
 
   return (
     <View style={{ position: "relative" }}>
@@ -30,7 +31,7 @@ const age = () => {
           <Text style={styles.subText}>Years Old</Text>
         </View>
         <View style={styles.wrapBtn}>
-          <ButtonSignup page={"gender"}/>
+          <ButtonSignup page={"gender"} isDisabled={isDisabled}/>
         </View>
       </View>
     </View>

@@ -3,7 +3,6 @@ import {
   Text,
   Image,
   StyleSheet,
-  KeyboardAvoidingViewBase,
   TextInput,
 } from "react-native";
 import React from "react";
@@ -12,8 +11,10 @@ import { Colors } from "../../constants/Colors";
 import ButtonSignup from "../../components/ButtonSignup";
 import { useFormData } from "./formHandler";
 
-const name = () => {
+const Name = () => {
   const { data, updateData } = useFormData();
+
+  const isDisabled = !data.name || data.name.trim() === "";
 
   return (
     <View style={styles.container}>
@@ -40,14 +41,14 @@ const name = () => {
           />
         </View>
         <View>
-          <ButtonSignup page={"age"} />
+          <ButtonSignup page={"age"} isDisabled={isDisabled} /> 
         </View>
       </View>
     </View>
   );
 };
 
-export default name;
+export default Name; 
 
 const styles = StyleSheet.create({
   container: {
@@ -64,12 +65,10 @@ const styles = StyleSheet.create({
     marginTop: 131,
     fontFamily: "latoBold",
   },
-
   inputText: {
     fontFamily: "latoBold",
     fontSize: 32,
     textAlign: "center",
-    // marginTop: "50%",
     textDecorationLine: "none",
     color: "grey",
   },
