@@ -12,6 +12,8 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [conPass, setConPass] = useState("");
+    const isDisabled = !email || !password || !conPass === "";
+
     const handleRegister = async () => {
         if (password != conPass) {
             Alert.alert("Password Mismatch", "Please re-type your passsword correctly. Make sure that both passwords are the same.")
@@ -50,7 +52,7 @@ const SignUp = () => {
                     <TextInput style={styles.formInput} placeholder="Re-type your password" onChangeText={setConPass} secureTextEntry={true}></TextInput>
                 </View>
                 <View>
-                    <ButtonSignup page={"notEmpty"} isSignUp={false} callback={handleRegister}/>
+                    <ButtonSignup page={"notEmpty"} isSignUp={true} callback={handleRegister} isDisabled={isDisabled}/>
                 </View>
             </View>
         </View>
