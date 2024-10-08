@@ -15,6 +15,7 @@ export default function Index() {
   const doubleCheck = async () => {
     try {
       const snapshot = await get(child(ref(REALTIME_DB), `users/${FIREBASE_AUTH.currentUser.uid}`));
+      console.log(snapshot.exists());
       if (snapshot.exists()) {
         setBioFilled(true);
       } else {

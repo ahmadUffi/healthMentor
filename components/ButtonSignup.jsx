@@ -67,7 +67,7 @@ const ButtonSignup = ({
 
             <Text
               style={{ color: Colors.greenPrimary }}
-              onPress={() => router.push("signup/name")}
+              onPress={() => router.push("signup/signup-form")}
             >
               {" "}
               Sign up here.
