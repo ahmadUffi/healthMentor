@@ -4,7 +4,7 @@ import { ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Colors } from "../constants/Colors";
 
-const Task = ({ text, time, schedule, imgUri }) => {
+const Task = ({ title, time, schedule, imgUri }) => {
   return (
     <View
       style={[
@@ -24,7 +24,7 @@ const Task = ({ text, time, schedule, imgUri }) => {
             schedule == "completed" ? styles.activeColor : styles.inactiveColor,
           ]}
         >
-          Wram Up
+          {title}
         </Text>
         <Text
           style={[
@@ -32,7 +32,7 @@ const Task = ({ text, time, schedule, imgUri }) => {
             styles.time,
           ]}
         >
-          7:20 AM - 7:30 AM
+          {time}
         </Text>
         <TouchableOpacity
           style={[

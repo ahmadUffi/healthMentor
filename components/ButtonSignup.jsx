@@ -51,6 +51,7 @@ const ButtonSignup = ({
       >
         {isSignUp ? (
           <Text style={{ marginVertical: 12 }}>
+
             Already have an account?
             <Text
               style={{ color: Colors.greenPrimary }}
@@ -63,6 +64,7 @@ const ButtonSignup = ({
         ) : (
           <Text style={{ marginVertical: 12 }}>
             New to the app?
+
             <Text
               style={{ color: Colors.greenPrimary }}
               onPress={() => router.push("signup/name")}
@@ -70,6 +72,7 @@ const ButtonSignup = ({
               {" "}
               Sign up here.
             </Text>
+
           </Text>
         )}
       </View>

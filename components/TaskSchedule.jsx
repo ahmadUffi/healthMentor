@@ -4,17 +4,19 @@ import { ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Colors } from "../constants/Colors";
 
-const Task = ({ text, time, schedule, Kcal }) => {
-  const img = require("../assets/images/task.png");
-
+const Task = ({ title, time, schedule, Kcal, imgUri, subtitle }) => {
   return (
     <View style={[styles.container]}>
       <View>
-        <Image source={img} />
+        <Image
+          source={{ uri: imgUri }}
+          style={{ width: 150, height: "100%", resizeMode: "cover" }}
+        />
       </View>
       <View style={styles.textWrap}>
-        <Text style={styles.text}>Wram Up</Text>
-        <Text style={styles.time}>7:20 AM - 7:30 AM</Text>
+        {subtitle && <Text style={styles.subtext}>{subtitle}</Text>}
+        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.time}>{time}</Text>
         <View style={{ display: "flex", flexDirection: "row", gap: 23 }}>
           <TouchableOpacity style={[styles.btn]}>
             <Text style={[styles.btnText]}>{schedule}</Text>
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     width: "100%",
-    height: 125,
+    height: 135,
     borderRadius: 10,
     overflow: "hidden",
     marginRight: 23,
@@ -44,12 +46,22 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "space-evenly",
     marginLeft: 12,
+    gap: 5,
   },
 
   text: {
     color: "white",
     fontFamily: "latoBold",
-    fontSize: 16,
+    fontSize: 18,
+    flexWrap: "wrap",
+    width: "80%",
+  },
+  subtext: {
+    color: "white",
+    fontFamily: "latoBold",
+    fontSize: 14,
+    flexWrap: "wrap",
+    Width: "100%",
   },
 
   time: {

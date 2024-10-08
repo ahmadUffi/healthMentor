@@ -2,28 +2,29 @@ import { Text, TextInput, View, StyleSheet, Alert } from "react-native";
 import Logo from "../../components/Logo";
 import ButtonSignup from "../../components/ButtonSignup";
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { browserLocalPersistence, createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 import { FIREBASE_AUTH } from "../../firebase";
 import { router } from "expo-router";
 import { useFormData } from "./formHandler";
 
-const Login = () => {
+
+const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
-    const handleAuth = async () => {
-
+    const [conPass, setConPass] = useState("");
+    const handleRegister = async () => {
+        if (password != conPass) {
+            Alert.alert("Password Mismatch", "Please re-type your passsword correctly. Make sure that both passwords are the same.")
+            return;
+        }
         try {
-            await signInWithEmailAndPassword(FIREBASE_AUTH, email, password);
-            router.push("/home");
+            await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password);
+            router.push("/signup/name");
         }
         catch (error) {
-            Alert.alert("Log In Failed", "Error code : " + error.code)
+            Alert.alert("Sign Up Failed", "Error code : " + error.code)
         }
     }
-
-    // Check if email and password are filled to enable/disable the button
-    const isDisabled = !email || !password; // Disable if either field is empty
 
     return (
         <View style={styles.container}>
@@ -31,48 +32,38 @@ const Login = () => {
                 <Logo/>
             </View>
             <View>
-                <Text style={styles.heading}>Log in</Text>
-                <Text style={styles.text}>Log in to an existing account.</Text>
+                <Text style={styles.heading}>Hi there,{"\n"}nice to see you!</Text>
+                <Text style={styles.text}>Sign up using an email and password</Text>
             </View>
             <View style={{
-                height: "74%",
+                height: "69%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between"
             }}>
                 <View style={{ paddingTop: "5%" }}>
                     <Text style={styles.text}>Email</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder="Type your email"
-                        onChangeText={setEmail}
-                        textContentType="emailAddress"
-                    />
+                    <TextInput style={styles.formInput} placeholder="Type your email" onChangeText={setEmail} textContentType="emailAddress"></TextInput>
                     <Text style={styles.text}>Password</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder="Type your password"
-                        onChangeText={setPassword}
-                        secureTextEntry={true}
-                    />
+                    <TextInput style={styles.formInput} placeholder="Type your password" onChangeText={setPassword} secureTextEntry={true}></TextInput>
+                    <Text style={styles.text}>Confirm Password</Text>
+                    <TextInput style={styles.formInput} placeholder="Re-type your password" onChangeText={setConPass} secureTextEntry={true}></TextInput>
                 </View>
                 <View>
-
-                    <ButtonSignup isSignUp={false} callback={handleAuth} isDisabled={isDisabled} /> 
-
+                    <ButtonSignup page={"notEmpty"} isSignUp={false} callback={handleRegister}/>
                 </View>
             </View>
         </View>
     )
 };
 
-export default Login;
+export default SignUp;
 
 const styles = StyleSheet.create({
     text: {
         color: "#192126",
         margin: "2%",
-        fontFamily: "latoReguler"
+        fontFamily : "latoReguler"
     },
     container: {
       position: "relative",
@@ -99,4 +90,4 @@ const styles = StyleSheet.create({
         margin: "1%",
         fontFamily: "latoReguler"
     }
-});
+  });
