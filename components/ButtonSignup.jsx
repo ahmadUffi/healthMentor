@@ -39,7 +39,7 @@ const ButtonSignup = ({
             fontFamily: "latoBold",
           }}
         >
-          {isSignUp ? "Next" : "Log in"}
+          {isSignUp || page ? "Next" : "Log in"}
         </Text>
       </TouchableOpacity>
       <View
