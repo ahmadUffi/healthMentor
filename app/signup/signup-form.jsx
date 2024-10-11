@@ -52,7 +52,7 @@ const SignUp = () => {
                     <TextInput style={styles.formInput} placeholder="Re-type your password" onChangeText={setConPass} secureTextEntry={true}></TextInput>
                 </View>
                 <View>
-                    <ButtonSignup page={"notEmpty"} isSignUp={true} callback={handleRegister} isDisabled={isDisabled}/>
+                    <ButtonSignup page={"notEmpty"} isSignUp={false} callback={handleRegister} isDisabled={isDisabled}/>
                 </View>
             </View>
         </View>
